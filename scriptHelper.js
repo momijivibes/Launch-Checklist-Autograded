@@ -66,13 +66,15 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
         cargoMassStatus.innerHTML = 'Cargo mass low enough for launch'
         launchStatus.innerHTML = 'Shuttle is Ready for Launch'
         launchStatus.style.color = 'green'
+    }
 
     if (fuelLevel >= 10000 && cargoLevel > 10000) {
         faultyItems.style.visibility = 'visibile'
         fuelStatus.innerHTML = 'Fuel level high enough for launch'
-        cargoMassStatus.innerHTML = 'Cargo level too heavy for launch'
+        cargoMassStatus.innerHTML = 'Cargo mass too heavy for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
         launchStatus.style.color = 'red'
+    }
 
     if (fuelLevel < 10000 && cargoLevel <= 10000) {
         faultyItems.style.visibility = 'visibile'
@@ -80,36 +82,19 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
         cargoMassStatus.innerHTML = 'Cargo mass low enough for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
         launchStatus.style.color = 'red'   
+    }
         
     if (fuelLevel < 10000 && cargoLevel > 10000) {
         faultyItems.style.visibility = 'visibile'
         fuelStatus.innerHTML = 'Fuel level too low for launch'
-        cargoMassStatus.innerHTML = 'Cargo level too heavy for launch'
+        cargoMassStatus.innerHTML = 'Cargo mass too heavy for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
         launchStatus.style.color = 'red'   
-
-
-        // if (fuelLevel < 10000) {
-        //     faultyItems.style.visibility = 'visibile'
-        //     fuelStatus.innerHTML = 'Fuel level too low for launch';
-        //     launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
-        //     launchStatus.style.color = 'red'
-        // } else {
-        //     fuelStatus.innerHTML = 'Fuel level high enough for launch';
-
-        // if (cargoLevel > 10000) {
-        //     faultyItems.style.visibility = 'visibile'
-        //     cargoMassStatus.innerHTML = 'Cargo level too heavy for launch';
-        //     launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
-        //     launchStatus.style.color = 'red'
-        // } else {
-        //     cargoMassStatus.innerHTML = 'Cargo mass low enough for launch';
-
-        // }
-        }}
     }
-}
-}
+
+        
+    }
+
 
 
     async function myFetch() {
@@ -127,6 +112,7 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
         return planets[randomNumber];
     }
 
+    
 
     module.exports.addDestinationInfo = addDestinationInfo;
     module.exports.validateInput = validateInput;

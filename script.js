@@ -1,7 +1,7 @@
 
 
-window.addEventListener("load", function () {
 
+window.addEventListener("load", function () {
     let listedPlanets;
 
     let listedPlanetsResponse = myFetch();
@@ -13,16 +13,20 @@ window.addEventListener("load", function () {
         addDestinationInfo(document, randomPlanet.name, randomPlanet.diameter, randomPlanet.star, randomPlanet.distance, randomPlanet.moons, randomPlanet.image);
     });
 
-
-    document.addEventListener("submit", function (event) {
+    //let form = document.getElementById('launchForm');
+    addEventListener("submit", function (event) {
         event.preventDefault();
-        let faultyItems = document.querySelector('#faultyItems');
-        let pilotName = document.querySelector('input[name=pilot]').value;
-        let coPilotName = document.querySelector('input[name=copilot]').value;
-        let fuelLevel = Number(document.querySelector('input[name=fuelLevel]').value);
-        let cargoMass = Number(document.querySelector('input[name=cargoMass]').value);
 
-        formSubmission(document, faultyItems, pilotName, coPilotName, fuelLevel, cargoMass);
+        //const { myFetch } = require("./scriptHelper");
+
+        const pilotName = document.querySelector("input[name=pilotName]").value;
+        const copilotName = document.querySelector("input[name=copilotName]").value;
+        const fuelLevel = Number(document.querySelector("input[name=fuelLevel]").value);
+        const cargoMass = Number(document.querySelector("input[name=cargoMass]").value);
+        const faultyItems = document.getElementById('faultyItems');
+
+        formSubmission(document, faultyItems, pilotName, copilotName, fuelLevel, cargoMass);
+
     });
-
 });
+

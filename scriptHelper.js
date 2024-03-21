@@ -1,6 +1,6 @@
 // Write your helper functions here! 5 functions! 
 
-//require('cross-fetch/polyfill');
+require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
@@ -81,41 +81,39 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
         fuelStatus.innerHTML = 'Fuel level too low for launch'
         cargoMassStatus.innerHTML = 'Cargo mass low enough for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
-        launchStatus.style.color = 'red'   
+        launchStatus.style.color = 'red'
     }
-        
+
     if (fuelLevel < 10000 && cargoLevel > 10000) {
         faultyItems.style.visibility = 'visibile'
         fuelStatus.innerHTML = 'Fuel level too low for launch'
         cargoMassStatus.innerHTML = 'Cargo mass too heavy for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
-        launchStatus.style.color = 'red'   
+        launchStatus.style.color = 'red'
     }
 
-        
-    }
+}
+
+async function myFetch() {
+
+    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
+        return response.json()
+    })
+    return planetsReturned;
+
+
+}
+
+
+function pickPlanet(planets) {
+    const randomNumber = Math.floor(Math.random() * planets.length);
+    return planets[randomNumber];
+}
 
 
 
-    async function myFetch() {
-
-        let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
-            return response.json()
-        })
-        return planetsReturned;
-
-    }
-
-
-    function pickPlanet(planets) {
-        const randomNumber = Math.floor(Math.random() * planets.length);
-        return planets[randomNumber];
-    }
-
-    
-
-    module.exports.addDestinationInfo = addDestinationInfo;
-    module.exports.validateInput = validateInput;
-    module.exports.formSubmission = formSubmission;
-    module.exports.pickPlanet = pickPlanet;
-    module.exports.myFetch = myFetch;
+module.exports.addDestinationInfo = addDestinationInfo;
+module.exports.validateInput = validateInput;
+module.exports.formSubmission = formSubmission;
+module.exports.pickPlanet = pickPlanet;
+module.exports.myFetch = myFetch;

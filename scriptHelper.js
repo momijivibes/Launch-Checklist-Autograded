@@ -19,7 +19,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 
-
 function validateInput(testInput) {
     if (testInput === "") {
         return ("Empty");
@@ -39,6 +38,7 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
     let launchStatus = document.getElementById('launchStatus')
     let pilotStatus = document.getElementById('pilotStatus')
     let copilotStatus = document.getElementById('copilotStatus')
+
 
 
     const validatedFuel = validateInput(fuelLevel)
@@ -61,7 +61,7 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
 
 
     if (fuelLevel >= 10000 && cargoLevel <= 10000) {
-        faultyItems.style.visibility = 'visibile'
+        faultyItems.style.visibility = 'visible'
         fuelStatus.innerHTML = 'Fuel level high enough for launch'
         cargoMassStatus.innerHTML = 'Cargo mass low enough for launch'
         launchStatus.innerHTML = 'Shuttle is Ready for Launch'
@@ -69,7 +69,7 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
     }
 
     if (fuelLevel >= 10000 && cargoLevel > 10000) {
-        faultyItems.style.visibility = 'visibile'
+        faultyItems.style.visibility = 'visible'
         fuelStatus.innerHTML = 'Fuel level high enough for launch'
         cargoMassStatus.innerHTML = 'Cargo mass too heavy for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
@@ -77,7 +77,7 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
     }
 
     if (fuelLevel < 10000 && cargoLevel <= 10000) {
-        faultyItems.style.visibility = 'visibile'
+        faultyItems.style.visibility = 'visible'
         fuelStatus.innerHTML = 'Fuel level too low for launch'
         cargoMassStatus.innerHTML = 'Cargo mass low enough for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'
@@ -85,7 +85,7 @@ function formSubmission(document, faultyItems, pilot, copilot, fuelLevel, cargoL
     }
 
     if (fuelLevel < 10000 && cargoLevel > 10000) {
-        faultyItems.style.visibility = 'visibile'
+        faultyItems.style.visibility = 'visible'
         fuelStatus.innerHTML = 'Fuel level too low for launch'
         cargoMassStatus.innerHTML = 'Cargo mass too heavy for launch'
         launchStatus.innerHTML = 'Shuttle Not Ready for Launch'

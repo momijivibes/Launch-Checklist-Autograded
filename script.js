@@ -26,5 +26,6 @@ window.addEventListener("load", function () {
         // Call the formSubmission function with the form information
         formSubmission(document, faultyItems, pilotName, copilotName, fuelLevel, cargoMass);
     });
+    
 });
 

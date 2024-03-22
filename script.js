@@ -1,6 +1,3 @@
-
-
-
 window.addEventListener("load", function () {
     let listedPlanets;
 
@@ -13,11 +10,12 @@ window.addEventListener("load", function () {
         addDestinationInfo(document, randomPlanet.name, randomPlanet.diameter, randomPlanet.star, randomPlanet.distance, randomPlanet.moons, randomPlanet.image);
     });
 
-    //let form = document.getElementById('launchForm');
-    addEventListener("submit", function (event) {
+    // Get the form element by its ID
+    let form = document.getElementById('launchForm');
+    
+    // Add event listener to the form submission
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
-
-        //const { myFetch } = require("./scriptHelper");
 
         const pilotName = document.querySelector("input[name=pilotName]").value;
         const copilotName = document.querySelector("input[name=copilotName]").value;
@@ -25,8 +23,8 @@ window.addEventListener("load", function () {
         const cargoMass = Number(document.querySelector("input[name=cargoMass]").value);
         const faultyItems = document.getElementById('faultyItems');
 
+        // Call the formSubmission function with the form information
         formSubmission(document, faultyItems, pilotName, copilotName, fuelLevel, cargoMass);
-
     });
 });
 
